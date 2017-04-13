@@ -1,7 +1,7 @@
 FROM phusion/baseimage:0.9.19
 
-MAINTAINER Liu Yang <yangliu@chuanty.com>
-# INSPIRED BY https://github.com/LaraDock/docker-images
+MAINTAINER  Ryu Gou   <376832293@qq.com>
+# INSPIRED BY https://github.com/i6448038/phalcon_dockerImages
 
 # Default baseimage settings
 ENV HOME /root
