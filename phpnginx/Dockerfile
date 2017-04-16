@@ -1,6 +1,6 @@
 FROM phusion/baseimage:0.9.19
 
-MAINTAINER Ryu Gou <376832293@qq.com>
+MAINTAINER  Ryu Gou   <376832293@qq.com>
 # INSPIRED BY https://github.com/i6448038/phalcon_dockerImages
 
 # Default baseimage settings
@@ -14,12 +14,13 @@ RUN apt-get install -y --force-yes python-software-properties
 RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update --fix-missing 
 RUN apt-get install -y  --allow-unauthenticated  nginx \
-    php5.6-fpm php5.6-cli php5.6-dev php5.6-mysql php5.6-mcrypt php-mongo php-mongodb php-redis \
-    php5.6-curl php5.6-gd php5.6-intl php5.6-zip php5.6-imap php5.6-xml php5.6-mbstring php-imagick  php-xdebug && \
+    php5.6-fpm php5.6-cli php5.6-dev php5.6-mysql php5.6-mcrypt php-mongo php-mongodb php-redis\
+    php5.6-curl php5.6-gd php5.6-intl php5.6-zip php5.6-imap php5.6-xml php5.6-mbstring php-imagick  php-xdebug  libmemcached11 php-mongodb php-memcached && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* \
            /tmp/* \
            /var/tmp/*
+           
 
  # Set The Timezone
 
@@ -32,8 +33,8 @@ RUN mkdir -p /var/www
 RUN mkdir -p /var/run/php
 
 #add phalcon5.6 extension
-ADD build/php/cphalcon-phalcon-v2.0.13 /cphalcon-phalcon-v2.0.13
-WORKDIR /cphalcon-phalcon-v2.0.13/build
+ADD build/php/cphalcon-phalcon-v2.0.6 /cphalcon-phalcon-v2.0.6
+WORKDIR /cphalcon-phalcon-v2.0.6/build
 RUN ./install
 ADD build/php/phalcon.ini /etc/php/5.6/mods-available/
 RUN ln -s /etc/php/5.6/mods-available/phalcon.ini /etc/php/5.6/cli/conf.d/20-phalcon.ini
