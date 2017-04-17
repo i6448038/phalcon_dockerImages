@@ -15,7 +15,7 @@ RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update --fix-missing 
 RUN apt-get install -y  --allow-unauthenticated  nginx \
     php5.6-fpm php5.6-cli php5.6-dev php5.6-mysql php5.6-mcrypt php-mongo php-mongodb php-redis\
-    php5.6-curl php5.6-gd php5.6-intl php5.6-zip php5.6-imap php5.6-xml php5.6-mbstring php-imagick  php-xdebug  libmemcached11 php-mongodb php-memcached && \
+    php5.6-curl php5.6-gd php5.6-intl php5.6-zip php5.6-imap php5.6-xml php5.6-mbstring php-imagick  php-xdebug  libmemcached11 php-memcache php-memcached && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* \
            /tmp/* \
